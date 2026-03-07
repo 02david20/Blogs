@@ -2,7 +2,7 @@
 layout: post
 title: "Circuit Breaker Pattern in C# .NET"
 date: 2026-03-07
-categories: [System Design, Pattern]
+categories: [System Designs, Design Patterns]
 tags: [csharp, dotnet, design-pattern, circuit-breaker]
 ---
 
