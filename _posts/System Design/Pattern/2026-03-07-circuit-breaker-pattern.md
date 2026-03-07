@@ -22,14 +22,18 @@ At its core, a circuit breaker is a finite state machine with three states:
 
 A simple diagram:
 
-```
-[Closed] --(failures>=threshold)--> [Open]
-   ^                                   |
-   |                                   | (after timeout)
-   |<----------(successful probes)------|
- [Half-Open] --(probe fails)--> [Open]
-```
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 60, 'nodeSpacing': 60}}}%%
+flowchart TB
+    Closed[Closed]
+    Open[Open]
+    HalfOpen[Half-Open]
 
+    Closed --|failures>=threshold|--> Open
+    Open --|after timeout|--> HalfOpen
+    HalfOpen --|successful probes|--> Closed
+    HalfOpen --|probe fails|--> Open
+```
 This state machine is the foundation of any from-scratch implementation. Managing concurrency, timers, and failure counts precisely is the main challenge in a robust design.. Managing concurrency, timers, and failure counts precisely is the main challenge in a robust design.
 
 There are three main states:

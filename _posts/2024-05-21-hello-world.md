@@ -20,4 +20,14 @@ This is a sample post for the **David Blog**.
 *   Code highlighting
 *   Responsive design
 
+Here is a sample Mermaid diagram:
+
+```mermaid
+flowchart TD
+    A[Start] --> B{Decision}
+    B -->|Yes| C[Process]
+    B -->|No| D[End]
+```
+
+
 Enjoy writing!
