@@ -19,6 +19,53 @@
         background: rgba(0,0,0, {{ page.header-mask }});
     }
     {% endif %}
+
+    header.intro-header .post-heading h1 {
+        background-color: rgba(255, 255, 255, 0.95);
+        color: #333;
+        padding: 15px 20px;
+        border-radius: 5px;
+        display: inline-block;
+    }
+
+    header.intro-header .post-heading .tags {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+    }
+
+    header.intro-header .post-heading .tags .tag {
+        background-color: rgba(255, 255, 255, 0.95);
+        color: #333;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 13px;
+        display: inline-block;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    header.intro-header .post-heading .tags .tag:hover {
+        background-color: rgba(255, 255, 255, 1);
+        transform: scale(1.05);
+    }
+
+    header.intro-header .post-heading h2.subheading {
+        background-color: rgba(255, 255, 255, 0.95);
+        color: #333;
+        padding: 10px 15px;
+        border-radius: 5px;
+        display: inline-block;
+        font-size: 24px;
+    }
+
+    header.intro-header .post-heading h2.subheading-empty {
+        background-color: transparent;
+        color: transparent;
+        padding: 0;
+        display: block;
+    }
 </style>
 {% endif %}
 
@@ -45,7 +92,11 @@
                     </div>
                     <h1>{{ page.title }}</h1>
                     {% comment %} always create a h2 for keeping the margin {% endcomment %}
+                    {% if page.subtitle %}
                     <h2 class="subheading">{{ page.subtitle }}</h2>
+                    {% else %}
+                    <h2 class="subheading subheading-empty"></h2>
+                    {% endif %}
                     <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
                 </div>
             </div>
